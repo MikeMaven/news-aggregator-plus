@@ -38,5 +38,6 @@ end
 
 post '/new' do
 
-  redirect '/'
+
+  redirect '/articles'
 end
