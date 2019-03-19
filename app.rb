@@ -1,10 +1,11 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'csv'
+require_relative 'app/models/article.rb'
+require 'pry'
 
-configure :development, :test do
-  require 'pry'
-end
+#configure :development, :test do
+#end
 
 Dir[File.join(File.dirname(__FILE__), 'lib', '**', '*.rb')].each do |file|
   require file
@@ -28,4 +29,14 @@ end
 get '/articles' do
   @articles = create_articles_array
   erb :articles
+end
+
+get '/articles/new' do
+
+  erb :new
+end
+
+post '/new' do
+
+  redirect '/'
 end
