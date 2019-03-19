@@ -37,8 +37,17 @@ get '/articles/new' do
 end
 
 post '/new' do
+  new_article_id = create_articles_array.length + 1
 
-  redirect '/'
+  CSV.open('news.csv', 'a') do |csv|
+    csv << [
+      new_article_id,
+      params["title_new"],
+      params["description_new"],
+      params["url_new"]
+    ]
+  end
+  redirect "/"
 end
 
 get "/" do
