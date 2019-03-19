@@ -4,8 +4,8 @@ require 'csv'
 require_relative 'app/models/article.rb'
 require 'pry'
 
-#configure :development, :test do
-#end
+configure :development, :test do
+end
 
 Dir[File.join(File.dirname(__FILE__), 'lib', '**', '*.rb')].each do |file|
   require file
@@ -37,7 +37,19 @@ get '/articles/new' do
 end
 
 post '/new' do
+  new_article_id = create_articles_array.length + 1
 
+  CSV.open('news.csv', 'a') do |csv|
+    csv << [
+      new_article_id,
+      params["title_new"],
+      params["description_new"],
+      params["url_new"]
+    ]
+  end
+  redirect "/"
+end
 
-  redirect '/articles'
+get "/" do
+  redirect "/articles"
 end
