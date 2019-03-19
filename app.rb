@@ -1,9 +1,11 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'csv'
+require_relative 'app/models/article.rb'
+require 'pry'
 
-configure :development, :test do
-  require 'pry'
-end
+#configure :development, :test do
+#end
 
 Dir[File.join(File.dirname(__FILE__), 'lib', '**', '*.rb')].each do |file|
   require file

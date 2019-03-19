@@ -1,11 +1,11 @@
 class Article
   attr_reader :id, :title, :url, :description
 
-  def initialize(title, url, description)
+  def initialize(title, url, description, id = nil)
     @title = title
     @url = url
     @description = description
-    @id = nil
+    @id = id
   end
 
 end
