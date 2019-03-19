@@ -14,3 +14,13 @@ get '/' do
   @title = "Hello World"
   erb :index
 end
+
+get '/articles/new' do
+
+  erb :new
+end
+
+post '/new' do
+
+  redirect '/'
+end
