@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'csv'
+require 'json'
 require_relative 'app/models/article.rb'
 require 'pry'
 
@@ -29,6 +30,22 @@ end
 get '/articles' do
   @articles = create_articles_array
   erb :articles
+end
+
+get '/articles-data.json' do
+  content_type :json
+  articles = create_articles_array
+  articles_data = {articles: []}
+  articles.each do |article|
+    article_data = {}
+    article_data[:id] = article.id
+    article_data[:title] = article.title
+    article_data[:description] = article.description
+    article_data[:url] = article.url
+    articles_data[:articles].push(article_data)
+   end
+   articles_data.to_json
+
 end
 
 get '/articles/new' do
