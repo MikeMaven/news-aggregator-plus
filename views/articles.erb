@@ -3,7 +3,7 @@
 <div class="grid-x">
 <% @articles.each do |article| %>
 <div class="cell small-3" id="articles">
-<h4><a href=<%= article.url%>><%= article.title %></a></h4>
+<h4><a href=<%= article.url%> target="_blank"><%= article.title %></a></h4>
 <p><%= article.description %></p>
   </div>
 <% end %>
