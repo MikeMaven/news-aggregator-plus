@@ -1,4 +1,4 @@
-fetch('http://localhost:4567/articles-data.json')
+fetch('http://localhost:4567/api')
   .then(response => {
     if (response.ok) {
       return response;

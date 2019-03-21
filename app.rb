@@ -4,6 +4,7 @@ require 'csv'
 require 'json'
 require_relative 'app/models/article.rb'
 require 'pry'
+require 'smarter_csv'
 
 configure :development, :test do
 end
@@ -33,6 +34,7 @@ get '/articles' do
 end
 
 get '/articles-data.json' do
+  binding.pry
   content_type :json
   articles = create_articles_array
   articles_data = {articles: []}
@@ -46,6 +48,12 @@ get '/articles-data.json' do
    end
    articles_data.to_json
 
+end
+
+get '/json' do
+  content_type :json
+  @data = SmarterCSV.process('news.csv')
+  @data.to_json
 end
 
 get '/articles/new' do
