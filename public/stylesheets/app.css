@@ -18,3 +18,8 @@ h1 {
   font-size: 0.7em;
   font-family: 'Roboto', sans-serif;
 }
+
+#home{
+  display: block;
+  width: 100%;  
+}
