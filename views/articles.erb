@@ -1,12 +1,16 @@
 <h1>News Aggregator Plus</h1>
-
-<div class="grid-x">
-  <% @articles.each do |article| %>
-    <div class="cell small-3" id="articles">
-      <h4><a href=<%= article.url%> target="_blank"><%= article.title %></a></h4>
-      <p><%= article.description %></p>
+<div id="super-container">
+  <div class="grid-x" id="container">
+    <% @articles.each do |article| %>
+      <div class="cell small-3" id="articles">
+        <h4><a href=<%= article.url%> target="_blank"><%= article.title %></a></h4>
+        <p><%= article.description %></p>
+      </div>
+    <% end %>
     </div>
-  <% end %>
+  <button id="randomizer">Random Article</button>
+  <button id="all-articles">All Articles</button>
 </div>
+
 
 <script src="/javascripts/app.js"/>

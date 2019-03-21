@@ -41,7 +41,7 @@ get '/articles/:article' do
       @article = article
     end
   end
-  
+
   erb :article
 end
 
@@ -84,6 +84,9 @@ post '/new' do
       params["url_new"]
     ]
   end
+  @title_new = params["title_new"]
+  @description_new = params["description_new"]
+  @url_new = params["url_new"]
   redirect "/"
 end
 
