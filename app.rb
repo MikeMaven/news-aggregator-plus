@@ -33,6 +33,18 @@ get '/articles' do
   erb :articles
 end
 
+get '/articles/:article' do
+  @articles = create_articles_array
+  @article = params[:article]
+  @articles.each do |article|
+    if article.id == @article
+      @article = article
+    end
+  end
+  
+  erb :article
+end
+
 get '/articles-data.json' do
   binding.pry
   content_type :json
